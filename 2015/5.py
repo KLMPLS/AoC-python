@@ -4,7 +4,6 @@ task = task.splitlines()
 vowels = 'aeiou'
 letters = [chr(i)*2 for i in range(97,123)]
 forbiden = ["ab","cd","pq","xy"]
-print(letters)
 part_one = 0
 for line in task:
     smth = True
@@ -23,3 +22,20 @@ for line in task:
                     print(line)
                     break
 print(part_one)
+
+part_two = 0
+for line in task:
+    z = 0
+    while z != len(line):
+        to_check = line[z:z+2]
+        print(to_check)
+        if to_check in line[z+2:]:
+            print(line)
+            for h,i in enumerate(line[:len(line)-2]):
+                if i == line[h+2]:
+                    print(line)
+                    part_two += 1
+                    break
+            break
+        z += 1
+print(part_two)
